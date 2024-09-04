@@ -64,6 +64,7 @@ class CalculatorHelper():
                 self._current_user = user
                 return username
         return None
+        
 
     def logout(self):
         user = self._current_user

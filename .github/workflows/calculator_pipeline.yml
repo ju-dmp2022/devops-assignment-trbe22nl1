@@ -31,8 +31,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: judevops.azurecr.io
-          username: ${{ ASSIGNMENT_USERNAME }}
-          password: ${{ ASSIGNMENT_PASSWORD }}
+          username: ${{ secrets.ASSIGNMENT_USERNAME }}
+          password: ${{ secrets.ASSIGNMENT_PASSWORD }}
       # Step 3: Build and push docker image
       - name: Build and push Docker image
         run: |

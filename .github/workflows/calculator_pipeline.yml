@@ -36,5 +36,5 @@ jobs:
       # Step 3: Build and push docker image
       - name: Build and push Docker image
         run: |
-          docker build -t benny_truong-calculator:1.0 judevops.azurecr.io/benny_truong-calculator
+          docker build -t . judevops.azurecr.io/benny_truong-calculator
           docker push judevops.azurecr.io/benny_truong-calculator

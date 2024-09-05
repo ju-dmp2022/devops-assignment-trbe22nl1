@@ -55,6 +55,7 @@ class CalculatorHelper():
     def register_user(self, username, password):
         for user in self._user_list:
             if(user.username == username):
+                print("Failed to register user")
                 return None
         user = self.User(username, password)
         self._user_list.append(user)
@@ -67,6 +68,7 @@ class CalculatorHelper():
             if(user.username == username and user.password == password):
                 self._current_user = user
                 return username
+        print("Login failed")
         return None
         
 
@@ -74,6 +76,7 @@ class CalculatorHelper():
         user = self._current_user
         self._current_user = None
         self.logger.debug(f"User {user} is logging off", extra=self.log_properties)
+        print("Logout failed")
         return user
 
     def get_current_user(self):

@@ -33,8 +33,29 @@ jobs:
           registry: judevops.azurecr.io
           username: ${{ secrets.ASSIGNMENT_USERNAME }}
           password: ${{ secrets.ASSIGNMENT_PASSWORD }}
+
       # Step 3: Build and push docker image
       - name: Build and push Docker image
         run: |
           docker build -t judevops.azurecr.io/benny_truong-calculator ./BE
           docker push judevops.azurecr.io/benny_truong-calculator
+      
+      # Step 4: Start REST API
+      - name: Start Rest API
+        run: |
+          nohup python BE/calculator.py --rest &
+
+      # Step 5: Build & test run
+      - name: Buid and Run Tests
+        run: |
+          # Execute your tests generating results
+          pytest --junitxml=report.xml
+      
+      # Step 6: Publish test report
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v4
+        if: success() || failure() # Always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
+
+

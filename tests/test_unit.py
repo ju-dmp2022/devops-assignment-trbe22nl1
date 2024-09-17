@@ -1,4 +1,4 @@
-from base_test import Basetest
+from tests.test_base import Basetest
 import pytest
 
 class TestCalculator(Basetest): 

@@ -60,6 +60,6 @@ jobs:
         uses: mikepenz/action-junit-report@v4
         if: success() || failure() # Always run even if the previous step fails
         with:
-          report_paths: 'C:\Users\benny\Desktop\DevopsAssignment\devops-assignment-trbe22nl1\BE\Report'
+          report_paths: '/home/runner/work/DevOps/DevOps/report.xml'
 
 

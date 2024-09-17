@@ -4,3 +4,4 @@ uvicorn
 numpy
 argparse
 opencensus-ext-azure
+pytest

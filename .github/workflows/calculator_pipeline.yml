@@ -46,7 +46,7 @@ jobs:
           nohup python BE/calculator.py --rest &
 
       # Step 5: Build & test run
-      - name: Buid and Run Tests
+      - name: Build and Run Tests
         run: |
           # Execute your tests generating results
           pytest --junitxml=report.xml

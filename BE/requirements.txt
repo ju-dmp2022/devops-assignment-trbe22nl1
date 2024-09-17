@@ -7,3 +7,5 @@ opencensus-ext-azure
 pytest
 httpx
 requests
+attrs==24.2.0
+python-dateutil

@@ -1,5 +1,5 @@
-import pytest
 from BE.calculator_helper import CalculatorHelper
+import pytest
 
 class Basetest:
     def setup_method(self, method):

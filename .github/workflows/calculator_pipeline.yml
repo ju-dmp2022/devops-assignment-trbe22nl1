@@ -57,7 +57,7 @@ jobs:
       # Step 5: Build & test run
       - name: Buid and Run Tests
         run: |
-          python -m pytest --junit-xml=report.xml
+          pytest --junit-xml=report.xml
       
       # Step 6: Publish test report
       - name: Publish Test Report

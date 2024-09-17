@@ -49,6 +49,10 @@ jobs:
       - name: Start Rest API
         run: |
           nohup python BE/calculator.py --rest &
+      
+      - name: Set PYTHONPATH
+        run: |
+          echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       # Step 5: Build & test run
       - name: Buid and Run Tests

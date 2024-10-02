@@ -1,7 +1,14 @@
 FROM python:3.12-slim
+
 WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
-RUN pip install -r requirements.txt
-#Workdir rad 2, COPY BE .
-ENTRYPOINT [ "python", "calculator.py" ]
+
+EXPOSE 5000
+
+ENTRYPOINT [ "python", "calculator.py", "--rest" ]
 

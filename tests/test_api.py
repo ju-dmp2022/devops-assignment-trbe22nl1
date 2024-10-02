@@ -15,7 +15,7 @@ class TestCalculatorAPI:
                     "operand2": 1
                     }
         response = requests.post(url, json=payload)
-        assert response.status_code == 200, f"Expected status code 200, but got {response.status_code}"
+        assert response.status_code == 2, f"Expected status code 2, but got {response.status_code}"
 
         # Parse the JSON response
         response_json = response.json()

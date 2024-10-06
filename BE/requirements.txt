@@ -9,3 +9,7 @@ httpx
 requests
 attrs==24.2.0
 python-dateutil
+munch
+selenium
+webdriver-manager
+assertpy

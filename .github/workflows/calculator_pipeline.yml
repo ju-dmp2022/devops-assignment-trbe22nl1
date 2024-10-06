@@ -44,6 +44,13 @@ jobs:
         run: |
           pip install -r ./BE/requirements.txt
 
+      # Start-up Selenium 
+      - name: Startup Selenium docker
+        run: |
+          docker run --name selenium -d --add-host host.docker.internal:host-gateway -p 4444:4444 -p 5900:5900 --shm-size="2g" selenium/standalone-chrome:4.2.1-20220531
+          docker compose -p webcalculator up -d
+
+
       # Step 3: Build and push docker image
       - name: Build and push Docker image
         run: |
@@ -60,7 +67,7 @@ jobs:
           echo "PYTHONPATH=$(pwd)/BE" >> $GITHUB_ENV
 
       # Step 5: Build & test run
-      - name: Buid and Run Tests
+      - name: Build and Run Tests
         run: |
           python -m pytest --junit-xml=report.xml
       

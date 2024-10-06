@@ -108,9 +108,9 @@ class TestReg(WebBase):
     
     def test_register(self):
         RegisterPage(self.driver).elements.register.click()
-        RegisterPage(self.driver).register_inputs('bento', 'test1234', 'test1234')
+        RegisterPage(self.driver).register_inputs('bentox', 'test1234', 'test1234')
         RegisterPage(self.driver).elements.register.click()
 
         sleep(5)
         
-        assert_that(RegisterPage(self.driver).elements.username_logged_in.text).is_equal_to('bento')
+        assert_that(RegisterPage(self.driver).elements.username_logged_in.text).is_equal_to('bentox')

@@ -22,8 +22,7 @@ class WebBase:
           
         # Create a new instance of the Chrome driver
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options = chrome_options)
-
-        #self.driver = webdriver.Remote(command_executor = "http://localhost:4444", options=chrome_options)
+        self.driver = webdriver.Remote(command_executor = "http://localhost:4444", options=chrome_options)
         self.driver.set_window_size(1920,1080)
         self.driver.get(self.app_url)
               

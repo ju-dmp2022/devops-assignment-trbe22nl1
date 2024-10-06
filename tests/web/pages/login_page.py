@@ -9,17 +9,7 @@ class LoginPage(PageBase):
 
         self.page_elements = {
             'username': Element('//input[@id="username"]', self),
-        }
-
-        self.elements = munchify(self.page_elements)
-
-class LoginPage(PageBase):
-    def __init__(self, driver):
-        PageBase.__init__(self, driver = driver)
-
-        self.page_elements = {
-            'username': Element('//input[@id="username"]', self),
-             'password': Element('//input[@id="password"]', self),
+            'password': Element('//input[@id="password"]', self),
             'login': Element('//button[@id="login"]', self),
             'logout': Element('//button[@id="logout-button"]', self),
             'username_logged_in': Element('//label[@id="user-name"]', self),

@@ -10,5 +10,5 @@ COPY . .
 
 EXPOSE 5000
 
-ENTRYPOINT [ "python", "calculator.py", "--rest" ]
+ENTRYPOINT [ "python", "calculator.py", "-r"]
 

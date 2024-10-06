@@ -6,6 +6,17 @@ from tests.web.pages.login_page import LoginPage
 from tests.web.pages.login_page import RegisterPage
 from tests.web.pages.login_page import CalculatePage
 
+class TestReg(WebBase):
+    
+    def test_register(self):
+        RegisterPage(self.driver).elements.register.click()
+        RegisterPage(self.driver).register_inputs('admin', 'test1234', 'test1234')
+        RegisterPage(self.driver).elements.register.click()
+
+        sleep(5)
+        
+        assert_that(RegisterPage(self.driver).elements.username_logged_in.text).is_equal_to('admin')
+
 class TestWeb(WebBase):
 
     def test_login(self):
@@ -103,13 +114,3 @@ class TestHistory(WebBase):
 
         assert_that(CalculatePage(self.driver).elements.historypanel.value).is_equal_to('1+2=3\n6/2=3\n')
 
-class TestReg(WebBase):
-    
-    def test_register(self):
-        RegisterPage(self.driver).elements.register.click()
-        RegisterPage(self.driver).register_inputs('betru12', 'test1234', 'test1234')
-        RegisterPage(self.driver).elements.register.click()
-
-        sleep(5)
-        
-        assert_that(RegisterPage(self.driver).elements.username_logged_in.text).is_equal_to('betru12')

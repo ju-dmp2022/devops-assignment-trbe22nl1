@@ -1,0 +1,39 @@
+Assuming 50 simultaneous users:
+◦ What are 95th percentile of the response time for the different operations (add, subtract...)?
+
+See "95th_percentile_and_throughput"
+
+Answers: 
+add: 10ms
+divide: 9ms
+multiply: 10ms
+subtract: 9ms
+
+◦ What is the throughput? That is, how many requests/second is performed with this user load?
+
+Answers: 17.3 Rps
+
+How many simultaneous users can the application handle and still reliably provide responses?
+
+Answer:
+The failures starts to appear around 4000 users (see Stress_test, Stress_test(1))
+
+What is the maximum throughput the Calculator application can achieve and still reliably provide responses?
+
+Answer: The failures start appearing around 351 RPS (See Maximum_throughput). At 351 there was one failure. So a bit over 351 should still be fine.
+
+
+
+1. Sometimes the response time when performing the add operation seemed to be slower than usual. It didn’t seem to be related to the number of simultaneous users, but no other clues were given. Can you figure out under what circumstances the problem may occur?
+
+Answer:
+Through some testing, I found that inserting negative values into the "add" function would sometimes increase the response time to 2000 ms (See Add_performance).
+
+2. The application seemed to crash from time to time. When it happened the application had to be restarted and then everything went back to normal. Can you reproduce the problem and inform the developers what seems to cause the problem? What part of the application is triggering the problem?
+
+Answer:
+After some testing of all the different functions, I noticed that the "division" function would not release the memory that it used up. Thus, the memory would accumulate till the application would crash. (See division_mem_leak).
+
+
+
+
